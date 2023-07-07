@@ -28,15 +28,83 @@ def fake_news(news):
 
 
 
+
+
 if __name__ == '__main__':
-    st.title('Fake News Classification app ')
-    st.subheader("Input the News content below")
-    sentence = st.text_area("Enter your news content here", "",height=200)
-    predict_btt = st.button("predict")
-    if predict_btt:
-        prediction_class=fake_news(sentence)
-        print(prediction_class)
-        if prediction_class == [0]:
-            st.success('Reliable')
-        if prediction_class == [1]:
-            st.warning('Unreliable')
+    # Set page configuration
+    # Set page configuration
+    st.set_page_config(
+        page_title="समाचार.AI",
+        page_icon="📰",
+        layout="centered",
+        initial_sidebar_state="expanded",
+    )
+
+    # Add some custom CSS styles
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background-color: #121212;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .stButton>button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+
+        .stTextInput>div>div>input {
+            background-color: #ffffff;
+            color: #000000;
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+        }
+
+        .stTextInput>div>div>input:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+        }
+
+        body {
+            background-image: url('1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # App title
+
+    st.title("समाचार.AI  🕵️📰")
+    st.title("Fake News Detector Web App")
+
+    # App content
+    with st.container():
+        st.markdown("Enter a news article below to detect if it's fake or real.")
+        text_input = st.text_area("News Article", height=150)
+        predict_btt = st.button("Detect")
+
+        if predict_btt:
+            # Perform the fake news detection logic
+            # You can add your code here to process the input
+
+            # Display the results
+            prediction_class = fake_news(text_input)
+            print(prediction_class)
+            if prediction_class == [0]:
+                st.success('Reliable')
+            if prediction_class == [1]:
+                st.warning('Unreliable')
+
+
