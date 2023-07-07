@@ -1,6 +1,5 @@
 streamlit
 nltk
-pickle
 re
 sklearn
 tensorflow==2.10
