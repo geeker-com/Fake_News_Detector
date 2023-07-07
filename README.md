@@ -1,6 +1,7 @@
 Fake News Prediction System using Machine Learning with Python aims to classify news articles or textual information as either real or fake.
 We used Logistic Regression technique for this model.
 Logistic Regression is a commonly used machine learning algorithm for binary classification problems.
+
 Dataset Link---https://www.kaggle.com/competitions/fake-news/data?select=train.csv
 
 Here's how the system generally works:
